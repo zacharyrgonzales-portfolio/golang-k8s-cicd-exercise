@@ -21,6 +21,8 @@ jobs:
     - name: Build Go server
       run: |
         cd cmd/app
+        go mod init
+        go mod tidy
         go build -o server .
 
     - name: Login to GitHub Container Registry
