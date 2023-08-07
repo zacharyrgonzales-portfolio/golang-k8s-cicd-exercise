@@ -69,7 +69,7 @@ This repository contains the source code for "My Go App", a Go application desig
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/my-go-app.git
+   git clone https://github.com/zacharyrgonzales-portfolio/golang-k8s-cicd-exercise.git
    ```
 
 2. Navigate to the project directory:
