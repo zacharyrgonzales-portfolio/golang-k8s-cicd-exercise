@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "go-server.fullname" . }}
+  labels:
+    {{- include "go-server.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "go-server.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "go-server.fullname" . }}
+    spec:
+      containers:
+        - name: go-server
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.app.port }}
